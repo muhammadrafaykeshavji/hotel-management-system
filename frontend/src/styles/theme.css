@@ -1,0 +1,345 @@
+/* ============================================================
+   LuxuryStay Hospitality — Centralized Theme System
+   Inspired by PC Hotels (Pearl Continental) Luxury Experience
+   ============================================================ */
+
+:root {
+  /* ── Brand Colors ── */
+  --color-primary: #20231F;
+  --color-accent: #B79A63;
+  --color-accent-light: #C9A96E;
+  --color-accent-dark: #967A42;
+  --color-accent-gradient: linear-gradient(135deg, #B79A63 0%, #967A42 100%);
+  --color-background: #F7F5F0;
+  --color-surface: #FFFFFF;
+  --color-surface-subtle: #FAF8F5;
+
+  /* ── Text Colors ── */
+  --color-text-primary: #20231F;
+  --color-text-secondary: #77766F;
+  --color-text-muted: #9C9A91;
+  --color-text-inverse: #FFFFFF;
+  --color-border: #E7E2D8;
+  --color-border-subtle: #F0ECE4;
+
+  /* ── Status Colors ── */
+  --color-success: #327A58;
+  --color-success-bg: rgba(50, 122, 88, 0.1);
+  --color-warning: #B98536;
+  --color-warning-bg: rgba(185, 133, 54, 0.1);
+  --color-error: #B94B43;
+  --color-error-bg: rgba(185, 75, 67, 0.1);
+  --color-info: #356F90;
+  --color-info-bg: rgba(53, 111, 144, 0.1);
+
+  /* ── Typography ── */
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* ── Font Sizes ── */
+  --text-xs: 0.75rem;     /* 12px */
+  --text-sm: 0.875rem;    /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-lg: 1.125rem;    /* 18px */
+  --text-xl: 1.5rem;      /* 24px */
+  --text-2xl: 2rem;       /* 32px */
+  --text-3xl: 2.5rem;     /* 40px */
+  --text-display: clamp(2.4rem, 5vw, 4.25rem);
+
+  /* ── Layout ── */
+  --container-width: 1280px;
+  --header-height: 84px;
+
+  /* ── Spacing ── */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --section-space: clamp(56px, 8vw, 112px);
+
+  /* ── Components & Shapes ── */
+  --radius-sm: 4px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 9999px;
+
+  /* ── Shadows ── */
+  --shadow-sm: 0 2px 8px rgba(32, 35, 31, 0.05);
+  --shadow-card: 0 8px 28px rgba(32, 35, 31, 0.08);
+  --shadow-lg: 0 16px 40px rgba(32, 35, 31, 0.14);
+  --shadow-gold: 0 6px 20px rgba(183, 154, 99, 0.35);
+
+  /* ── Motion & Transitions ── */
+  --transition-fast: 180ms ease;
+  --transition-normal: 280ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 400ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ── Backward-Compatibility Aliases for existing --ls-* variables ── */
+  --ls-charcoal: var(--color-primary);
+  --ls-gold: var(--color-accent);
+  --ls-gold-light: var(--color-accent-light);
+  --ls-gold-dark: var(--color-accent-dark);
+  --ls-gold-gradient: var(--color-accent-gradient);
+  --ls-ivory: var(--color-background);
+  --ls-white: var(--color-surface);
+  --ls-gray: var(--color-text-secondary);
+  --ls-border-warm: var(--color-border);
+  --ls-font-serif: var(--font-heading);
+  --ls-font-sans: var(--font-body);
+}
+
+/* ============================================================
+   GLOBAL BASE & TYPOGRAPHY
+   ============================================================ */
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, .ls-serif, .font-serif {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  letter-spacing: -0.01em;
+}
+
+/* Section Tagline */
+.ls-section-tag {
+  color: var(--color-accent);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-2);
+  display: block;
+}
+
+.ls-section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: var(--space-3);
+  line-height: 1.2;
+}
+
+.ls-section-subtitle {
+  color: var(--color-text-secondary);
+  font-size: 1.05rem;
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   CENTRALIZED BUTTON SYSTEM
+   ============================================================ */
+
+.ls-btn-primary, .ls-btn-gold {
+  background: var(--color-accent-gradient);
+  color: #FFFFFF !important;
+  border: 1px solid transparent;
+  padding: 0.65rem 1.6rem;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  text-decoration: none;
+  box-shadow: var(--shadow-gold);
+}
+
+.ls-btn-primary:hover, .ls-btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(183, 154, 99, 0.45);
+  color: #FFFFFF !important;
+}
+
+.ls-btn-primary:active, .ls-btn-gold:active {
+  transform: translateY(0);
+}
+
+.ls-btn-outline, .ls-btn-outline-gold {
+  background: transparent;
+  color: var(--color-accent) !important;
+  border: 1.5px solid var(--color-accent);
+  padding: 0.65rem 1.6rem;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  text-decoration: none;
+}
+
+.ls-btn-outline:hover, .ls-btn-outline-gold:hover {
+  background: var(--color-accent);
+  color: #FFFFFF !important;
+  transform: translateY(-2px);
+}
+
+.ls-btn-secondary {
+  background: var(--color-primary);
+  color: #FFFFFF !important;
+  border: 1px solid var(--color-primary);
+  padding: 0.65rem 1.6rem;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ls-btn-secondary:hover {
+  background: #2D312C;
+  color: #FFFFFF !important;
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   CENTRALIZED CARDS & SURFACES
+   ============================================================ */
+
+.ls-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  overflow: hidden;
+}
+
+.ls-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+  border-color: rgba(183, 154, 99, 0.4);
+}
+
+.ls-card-body {
+  padding: var(--space-6);
+}
+
+/* ============================================================
+   CENTRALIZED FORM INPUTS
+   ============================================================ */
+
+.ls-input, .ls-select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: var(--text-sm);
+  font-family: var(--font-body);
+  color: var(--color-text-primary);
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  outline: none;
+}
+
+.ls-input:focus, .ls-select:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(183, 154, 99, 0.15);
+}
+
+.ls-label {
+  display: block;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-2);
+}
+
+/* ============================================================
+   CENTRALIZED STATUS BADGES
+   ============================================================ */
+
+.ls-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.02em;
+}
+
+.ls-badge-gold {
+  background: rgba(183, 154, 99, 0.12);
+  color: var(--color-accent-dark);
+  border: 1px solid rgba(183, 154, 99, 0.3);
+}
+
+.ls-badge-success {
+  background: var(--color-success-bg);
+  color: var(--color-success);
+  border: 1px solid rgba(50, 122, 88, 0.25);
+}
+
+.ls-badge-warning {
+  background: var(--color-warning-bg);
+  color: var(--color-warning);
+  border: 1px solid rgba(185, 133, 54, 0.25);
+}
+
+.ls-badge-error {
+  background: var(--color-error-bg);
+  color: var(--color-error);
+  border: 1px solid rgba(185, 75, 67, 0.25);
+}
+
+/* ============================================================
+   FLOATING SEARCH ENGINE (HERO)
+   ============================================================ */
+
+.ls-search-engine {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-6);
+  position: relative;
+  z-index: 10;
+}
+
+/* ============================================================
+   ACCESSIBILITY & REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+

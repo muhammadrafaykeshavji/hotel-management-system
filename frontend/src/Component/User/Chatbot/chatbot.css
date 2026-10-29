@@ -1,0 +1,305 @@
+.ls-chat-root {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 1050;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+.ls-chat-launcher {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 2px solid rgba(184, 155, 98, 0.7);
+  background: linear-gradient(145deg, #1c1c1c 0%, #2a241c 100%);
+  color: #b89b62;
+  box-shadow:
+    0 14px 36px rgba(0, 0, 0, 0.35),
+    0 0 0 6px rgba(184, 155, 98, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+}
+
+.ls-chat-launcher:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow:
+    0 18px 42px rgba(0, 0, 0, 0.4),
+    0 0 0 8px rgba(184, 155, 98, 0.16);
+}
+
+.ls-chat-launcher .pulse {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid rgba(184, 155, 98, 0.45);
+  animation: ls-chat-pulse 2s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes ls-chat-pulse {
+  0% { transform: scale(0.92); opacity: 0.8; }
+  100% { transform: scale(1.25); opacity: 0; }
+}
+
+.ls-chat-panel {
+  width: min(380px, calc(100vw - 28px));
+  height: min(560px, calc(100vh - 110px));
+  margin-bottom: 14px;
+  background: #faf8f4;
+  border-radius: 18px;
+  border: 1px solid rgba(184, 155, 98, 0.35);
+  box-shadow: 0 28px 70px rgba(23, 23, 23, 0.35);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform-origin: bottom right;
+}
+
+.ls-chat-header {
+  background: linear-gradient(135deg, #171717 0%, #2a241c 100%);
+  color: #fff;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid rgba(184, 155, 98, 0.35);
+}
+
+.ls-chat-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #b89b62, #9e824c);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #171717;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.ls-chat-header h3 {
+  margin: 0;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.ls-chat-header p {
+  margin: 0;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.04em;
+}
+
+.ls-chat-close {
+  margin-left: auto;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.15rem;
+  cursor: pointer;
+  padding: 4px 6px;
+}
+
+.ls-chat-close:hover {
+  color: #b89b62;
+}
+
+.ls-chat-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background:
+    radial-gradient(circle at top right, rgba(184, 155, 98, 0.08), transparent 40%),
+    #faf8f4;
+}
+
+.ls-chat-bubble {
+  max-width: 88%;
+  padding: 10px 12px;
+  border-radius: 14px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.ls-chat-bubble.bot {
+  align-self: flex-start;
+  background: #fff;
+  border: 1px solid #e6dfd3;
+  color: #171717;
+  border-bottom-left-radius: 4px;
+  box-shadow: 0 6px 16px rgba(23, 23, 23, 0.05);
+}
+
+.ls-chat-bubble.user {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #b89b62, #9e824c);
+  color: #fff;
+  border-bottom-right-radius: 4px;
+  white-space: pre-wrap;
+}
+
+.ls-chat-md {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.ls-chat-p {
+  margin: 0;
+}
+
+.ls-chat-spacer {
+  height: 0.35rem;
+}
+
+.ls-chat-list {
+  margin: 0.15rem 0 0.25rem;
+  padding-left: 1.15rem;
+}
+
+.ls-chat-list li {
+  margin: 0.2rem 0;
+}
+
+.ls-chat-md strong {
+  font-weight: 700;
+  color: #1a1510;
+}
+
+.ls-chat-md code {
+  font-size: 0.82em;
+  background: rgba(184, 155, 98, 0.12);
+  padding: 0.05rem 0.3rem;
+  border-radius: 4px;
+}
+
+.ls-chat-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.ls-chat-link {
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: #9e824c;
+  background: rgba(184, 155, 98, 0.12);
+  border: 1px solid rgba(184, 155, 98, 0.4);
+  border-radius: 999px;
+  padding: 4px 10px;
+  text-decoration: none;
+}
+
+.ls-chat-link:hover {
+  background: #b89b62;
+  color: #fff;
+}
+
+.ls-chat-typing {
+  align-self: flex-start;
+  display: inline-flex;
+  gap: 4px;
+  padding: 10px 14px;
+  background: #fff;
+  border: 1px solid #e6dfd3;
+  border-radius: 14px;
+}
+
+.ls-chat-typing span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #b89b62;
+  animation: ls-chat-dot 1s infinite ease-in-out;
+}
+
+.ls-chat-typing span:nth-child(2) { animation-delay: 0.15s; }
+.ls-chat-typing span:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes ls-chat-dot {
+  0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
+  40% { transform: translateY(-4px); opacity: 1; }
+}
+
+.ls-chat-quick {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0 14px 10px;
+}
+
+.ls-chat-chip {
+  border: 1px solid rgba(184, 155, 98, 0.45);
+  background: #fff;
+  color: #333;
+  font-size: 0.74rem;
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ls-chat-chip:hover {
+  background: #171717;
+  color: #b89b62;
+  border-color: #171717;
+}
+
+.ls-chat-form {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  border-top: 1px solid #e6dfd3;
+  background: #fff;
+}
+
+.ls-chat-form input {
+  flex: 1;
+  border: 1px solid #e6dfd3;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-size: 0.88rem;
+  outline: none;
+}
+
+.ls-chat-form input:focus {
+  border-color: #b89b62;
+  box-shadow: 0 0 0 3px rgba(184, 155, 98, 0.18);
+}
+
+.ls-chat-form button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, #b89b62, #9e824c);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ls-chat-form button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+@media (max-width: 576px) {
+  .ls-chat-root {
+    right: 14px;
+    bottom: 14px;
+  }
+}

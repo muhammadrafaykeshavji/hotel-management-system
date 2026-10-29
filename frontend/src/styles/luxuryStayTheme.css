@@ -1,0 +1,645 @@
+/* ============================================================
+   LUXURYSTAY HOSPITALITY — BRAND THEME (Inspired by PC Hotels)
+   Colors: Charcoal #171717, Ivory #F7F4EE, Muted Gold #B89B62
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --ls-charcoal: #171717;
+  --ls-charcoal-light: #242424;
+  --ls-ivory: #F7F4EE;
+  --ls-ivory-dark: #EFECE3;
+  --ls-gold: #B89B62;
+  --ls-gold-hover: #9E824C;
+  --ls-gold-light: rgba(184, 155, 98, 0.12);
+  --ls-gold-gradient: linear-gradient(135deg, #B89B62 0%, #9E824C 100%);
+  --ls-gray-dark: #333333;
+  --ls-gray: #777777;
+  --ls-gray-light: #F4F4F4;
+  --ls-border-warm: #E6DFD3;
+  --ls-border-soft: rgba(0, 0, 0, 0.08);
+  --ls-font-serif: 'Playfair Display', Georgia, serif;
+  --ls-font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --ls-shadow-luxury: 0 12px 36px rgba(23, 23, 23, 0.08);
+  --ls-shadow-hover: 0 20px 48px rgba(23, 23, 23, 0.14);
+  /* Soft hotel stationery print (gold diamond + crest dots) */
+  --ls-print-tile:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cg fill='none' stroke='%23B89B62' stroke-width='0.7' opacity='0.22'%3E%3Cpath d='M36 8 L64 36 L36 64 L8 36 Z'/%3E%3Cpath d='M36 22 L50 36 L36 50 L22 36 Z'/%3E%3C/g%3E%3Ccircle cx='36' cy='36' r='1.6' fill='%23B89B62' opacity='0.28'/%3E%3C/svg%3E");
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--ls-font-sans);
+  color: var(--ls-charcoal);
+  background-color: #F8F5EF;
+}
+
+#root {
+  margin: 0;
+  padding: 0;
+}
+
+/* Guest site: warm ivory + light luxury print (not flat white) */
+.user-app {
+  background-color: #F8F5EF;
+  background-image:
+    var(--ls-print-tile),
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(184, 155, 98, 0.06), transparent 55%);
+  background-size: 72px 72px, 100% 100%;
+  background-attachment: fixed, scroll;
+}
+
+.user-main {
+  background: transparent;
+}
+
+/* Reusable print surface for flat ivory/white sections */
+.ls-print-surface {
+  background-color: rgba(247, 244, 238, 0.92) !important;
+  background-image:
+    var(--ls-print-tile),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(247, 244, 238, 0.9)) !important;
+  background-size: 72px 72px, 100% 100% !important;
+}
+
+/* Keep cards/forms solid so text stays crisp over the print */
+.user-app .ls-hotel-card,
+.user-app .ls-card,
+.user-app .ls-offer-card,
+.user-app .ls-search-engine,
+.user-app .ls-booking-glass {
+  background-color: #FFFFFF;
+  background-image: none;
+}
+
+h1, h2, h3, .ls-serif {
+  font-family: var(--ls-font-serif);
+  letter-spacing: -0.015em;
+}
+
+/* ── Luxury Header & Navbar ── */
+.ls-navbar {
+  background-color: var(--ls-charcoal);
+  border-bottom: 1px solid rgba(184, 155, 98, 0.25);
+  transition: all 0.3s ease;
+}
+
+.ls-nav-link {
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-size: 0.75rem !important;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 0.45rem 0.75rem !important;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.ls-nav-link:hover,
+.ls-nav-link.active-link {
+  color: var(--ls-gold) !important;
+}
+
+.ls-nav-link.active-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 0.9rem;
+  right: 0.9rem;
+  height: 2px;
+  background-color: var(--ls-gold);
+}
+
+/* ── Luxury Buttons ── */
+.ls-btn-gold {
+  background: var(--ls-gold-gradient);
+  color: #FFFFFF !important;
+  font-weight: 600;
+  font-size: 0.88rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.75rem 1.6rem;
+  border-radius: 4px;
+  border: none;
+  box-shadow: 0 4px 14px rgba(184, 155, 98, 0.3);
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.ls-btn-gold:hover {
+  background: linear-gradient(135deg, #9E824C 0%, #876C39 100%);
+  box-shadow: 0 6px 20px rgba(184, 155, 98, 0.45);
+  transform: translateY(-1px);
+}
+
+.ls-btn-outline-gold {
+  background: transparent;
+  color: var(--ls-gold) !important;
+  border: 1px solid var(--ls-gold);
+  font-weight: 600;
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  padding: 0.7rem 1.4rem;
+  border-radius: 4px;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.ls-btn-outline-gold:hover {
+  background: var(--ls-gold);
+  color: #FFFFFF !important;
+}
+
+/* ── Section Titles (PC Hotels style) ── */
+.ls-section-tag {
+  color: var(--ls-gold);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.ls-section-title {
+  font-size: 2.3rem;
+  font-weight: 600;
+  color: var(--ls-charcoal);
+  margin-bottom: 0.75rem;
+}
+
+.ls-section-subtitle {
+  color: var(--ls-gray);
+  font-size: 1.05rem;
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ── Hero Search Widget (Floating) ── */
+.ls-hero-search-wrap {
+  background: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
+  padding: 1.25rem 1.5rem;
+  margin-top: -3.5rem;
+  position: relative;
+  z-index: 20;
+  border: 1px solid var(--ls-border-warm);
+}
+
+.ls-search-label {
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ls-gray);
+  margin-bottom: 0.35rem;
+  display: block;
+}
+
+.ls-search-input,
+.ls-search-select {
+  border: 1px solid #E2E2E2;
+  border-radius: 4px;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.95rem;
+  color: var(--ls-charcoal);
+  width: 100%;
+  font-weight: 500;
+  transition: border-color 0.2s ease;
+}
+
+.ls-search-input:focus,
+.ls-search-select:focus {
+  border-color: var(--ls-gold);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(184, 155, 98, 0.2);
+}
+
+/* ── Hotel Card (PC Hotels style) ── */
+.ls-hotel-card {
+  background: #FFFFFF;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--ls-border-warm);
+  box-shadow: var(--ls-shadow-luxury);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.ls-hotel-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--ls-shadow-hover);
+}
+
+.ls-hotel-img-wrap {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+}
+
+.ls-hotel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.ls-hotel-card:hover .ls-hotel-img {
+  transform: scale(1.05);
+}
+
+.ls-hotel-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: var(--ls-charcoal);
+  color: var(--ls-gold);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 3px;
+}
+
+.ls-hotel-rating {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(23, 23, 23, 0.85);
+  backdrop-filter: blur(4px);
+  color: #FFFFFF;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.ls-hotel-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.ls-hotel-city {
+  color: var(--ls-gold);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.35rem;
+}
+
+.ls-hotel-title {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--ls-charcoal);
+  margin-bottom: 0.6rem;
+  line-height: 1.3;
+}
+
+.ls-hotel-desc {
+  font-size: 0.9rem;
+  color: var(--ls-gray);
+  line-height: 1.55;
+  margin-bottom: 1.25rem;
+  flex: 1;
+}
+
+.ls-hotel-facilities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 1.25rem;
+}
+
+.ls-facility-pill {
+  background: var(--ls-ivory);
+  color: var(--ls-charcoal);
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 3px;
+  border: 1px solid var(--ls-border-warm);
+}
+
+.ls-hotel-footer {
+  border-top: 1px solid #EFECE6;
+  padding-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ls-hotel-price-label {
+  font-size: 0.76rem;
+  color: var(--ls-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.ls-hotel-price {
+  font-family: var(--ls-font-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ls-charcoal);
+}
+
+/* ── Offer Card ── */
+.ls-offer-card {
+  background: #FFFFFF;
+  border: 1px solid var(--ls-border-warm);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--ls-shadow-luxury);
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.ls-offer-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--ls-shadow-hover);
+}
+
+.ls-offer-img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.ls-offer-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.ls-offer-code-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--ls-gold-light);
+  color: var(--ls-gold);
+  border: 1px dashed var(--ls-gold);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  width: fit-content;
+  margin-bottom: 0.85rem;
+}
+
+/* ── Privilege Banner (Loyalty) ── */
+.ls-privilege-banner {
+  background: linear-gradient(135deg, #171717 0%, #2A241C 100%);
+  border-radius: 12px;
+  color: #FFFFFF;
+  padding: 3.5rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(184, 155, 98, 0.35);
+}
+
+.ls-privilege-pattern {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 45%;
+  background-image: radial-gradient(circle, rgba(184, 155, 98, 0.15) 1px, transparent 1px);
+  background-size: 18px 18px;
+  pointer-events: none;
+}
+
+/* ── Filter Tab Buttons ── */
+.ls-filter-pill {
+  background: #FFFFFF;
+  border: 1px solid var(--ls-border-warm);
+  color: var(--ls-charcoal);
+  padding: 0.5rem 1.1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ls-filter-pill:hover,
+.ls-filter-pill.active {
+  background: var(--ls-charcoal);
+  color: var(--ls-gold);
+  border-color: var(--ls-charcoal);
+}
+
+/* ── Depth / 3D utilities (subtle luxury) ── */
+.ls-depth-scene {
+  perspective: 1200px;
+  perspective-origin: 50% 40%;
+}
+
+.ls-tilt-card,
+.ls-tilt-static {
+  height: 100%;
+  border-radius: inherit;
+  will-change: transform;
+}
+
+.ls-tilt-card {
+  position: relative;
+  isolation: isolate;
+}
+
+.ls-tilt-inner {
+  height: 100%;
+  border-radius: inherit;
+  transform: translateZ(12px);
+}
+
+.ls-tilt-glare {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  mix-blend-mode: soft-light;
+  transition: opacity 0.25s ease;
+  z-index: 2;
+}
+
+.ls-tilt-card:hover .ls-tilt-glare {
+  opacity: 0.7;
+}
+
+.ls-tilt-card .ls-hotel-card,
+.ls-tilt-card .ls-card,
+.ls-tilt-static .ls-hotel-card,
+.ls-tilt-static .ls-card {
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  transform: none !important;
+}
+
+.ls-tilt-card:hover .ls-hotel-card,
+.ls-tilt-card:hover .ls-card {
+  box-shadow: 0 18px 40px rgba(23, 23, 23, 0.14);
+}
+
+.ls-hero-parallax-bg {
+  will-change: transform;
+  transform-origin: center center;
+}
+
+.ls-booking-glass {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow:
+    0 24px 56px rgba(0, 0, 0, 0.36),
+    0 1px 0 rgba(255, 255, 255, 0.55) inset;
+}
+
+.ls-3d-stage {
+  perspective: 1200px;
+  perspective-origin: 50% 45%;
+}
+
+.ls-3d-panel {
+  transform-style: preserve-3d;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow:
+    0 20px 44px rgba(23, 23, 23, 0.28),
+    0 0 0 1px rgba(184, 155, 98, 0.28);
+}
+
+.ls-3d-panel--static {
+  animation: none;
+  transform: none;
+}
+
+.ls-3d-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(184, 155, 98, 0.15);
+  border: 1px solid rgba(184, 155, 98, 0.55);
+  color: var(--ls-gold);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ls-tilt-glare {
+    display: none;
+  }
+}
+
+/* ── Swiper next/prev: no broken remixicon glyph; clean bottom nav ── */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  content: none !important;
+  display: none !important;
+  font-size: 0 !important;
+}
+
+.swiper .ls-swiper-nav {
+  position: static !important;
+  margin: 0 !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  transform: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  width: 44px;
+  height: 44px;
+  background: #ffffff;
+  border: 1.5px solid var(--ls-gold, #b89b62);
+  border-radius: 50%;
+  color: var(--ls-gold, #b89b62);
+  box-shadow: 0 4px 14px rgba(23, 23, 23, 0.08);
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  font-size: 0;
+  cursor: pointer;
+}
+
+.swiper .ls-swiper-nav:hover {
+  background: var(--ls-gold, #b89b62);
+  color: #ffffff;
+}
+
+.swiper .ls-swiper-nav i {
+  font-size: 16px;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.swiper .ls-swiper-nav.swiper-button-disabled {
+  opacity: 0.35 !important;
+  cursor: default;
+}
+
+.ls-swiper-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 1.25rem;
+}
+
+/* ── Guest portal scrollbars (reinforce global LuxuryStay chrome) ── */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(184, 155, 98, 0.55) transparent;
+}
+
+html::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+html::-webkit-scrollbar-track {
+  background: rgba(23, 23, 23, 0.03);
+}
+
+html::-webkit-scrollbar-thumb {
+  background: rgba(184, 155, 98, 0.55);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: rgba(184, 155, 98, 0.9);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
